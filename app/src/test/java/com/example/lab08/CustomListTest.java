@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class CustomListTest {
     @Test
-    public void hasCity_behavesCorrectly() {
+    public void hasCityTest() {
         CustomList list = new CustomList();
 
         City edmonton = new City("Edmonton", "AB");
@@ -20,7 +20,7 @@ public class CustomListTest {
         assertFalse(list.hasCity(calgary));
     }
     @Test
-    public void deleteCity(){
+    public void deleteCityTest(){
         CustomList list = new CustomList();
         City edmonton = new City("Edmonton", "AB");
         City calgary  = new City("Calgary",  "AB");
@@ -35,4 +35,17 @@ public class CustomListTest {
         assertFalse(list.hasCity(calgary));
         assertTrue(list.hasCity(edmonton));
     }
+    @Test
+    public void countCitiesTest() {
+        CustomList list = new CustomList();
+
+        assertEquals(0, list.countCities());
+
+        list.addCity(new City("Edmonton", "AB"));
+        assertEquals(1, list.countCities());
+
+        list.addCity(new City("Calgary", "AB"));
+        assertEquals(2, list.countCities());
+    }
+
 }
